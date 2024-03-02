@@ -20,12 +20,22 @@
                                 <div class="mb-3">
                                     <label class="form-label text-uppercase" for="username">Usuario</label>
                                     <input class="form-control" type="text" name="username" placeholder="Escriba el nombre del usuario" required />
+                                    @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-12">
                                 <div class="mb-3">
                                     <label class="form-label text-uppercase" for="email">Correo Electrónico</label>
                                     <input class="form-control" type="email" name="email" placeholder="Escriba el correo electrónico del usuario" required />
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-12">
@@ -51,10 +61,19 @@
                                         <option value="">Seleccione</option>
                                         <option value="1">Activo</option>
                                         <option value="0">Inactivo</option>
-                                    </select>@error('status') <span class="error text-danger">{{ $message }}</span> @enderror
+                                    </select>
                                 </div>
                             </div>
-
+                            <div class="col-md-12 col-lg-12">
+                                <div class="mb-3">
+                                    <label class="form-label text-uppercase" for="admin">¿Es administrador?</label>
+                                    <select name="admin" id="" class="form-select selectpicker" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">

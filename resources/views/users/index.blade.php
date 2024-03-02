@@ -2,6 +2,9 @@
 @section('title', 'Usuarios')
 
 @section('content')
+
+<!-- se valida que el usuarios que inicia sesión, en admin sea 1 -->
+@if (auth()->user()->admin == 1)
 <div class="main-content">
     <div class="container-fluid">
 
@@ -15,10 +18,9 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-auto">
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newUser">
-                                <span data-bs-toggle="tooltip" data-bs-offset="0,1" data-bs-placement="top" data-bs-html="true" title="" data-bs-original-title="<span>Crear nuevo usuario</span>"><i class="fa fa-plus">NUEVO</i></span>
-                            </button>
-                            @include('users.modals.add')
+                            <a class="btn btn-primary btn-sm" href="{{ route('home') }}"> Regresar</a>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#newUser"><i class="fa fa-plus">NUEVO</i></button>
+                            @include('users.modals.add') 
                         </div>
                     </div>
                 </div>
@@ -40,6 +42,7 @@
                                         <th>Nombre y Apellidos</th>
                                         <th>Usuario</th>
                                         <th>Correo Electrónico</th>
+                                        <th>Administrador</th>
                                         <th>Estado</th>
                                         <th class="text-center">Acciones</th>
                                     </tr>
@@ -58,6 +61,13 @@
                                             @endif
                                         </td>
                                         <td>{{ $user->email }}</td>
+                                        <td>
+                                            @if ($user->admin == 1)
+                                            <span class="badge bg-danger">Administrado</span>
+                                            @else
+                                            <span class="badge bg-warning">User</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             @if ($user->status == 1)
                                             <span class="badge bg-success">Activo</span>
@@ -92,4 +102,23 @@
 
     </div> <!-- container-fluid -->
 </div>
+@else
+<!-- si el usuario que inicia sesión en admin es igual a 0  -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Usuarios</div>
+
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3>Bienvenid@, lo siento pero NO eres administrador</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+
 @endsection

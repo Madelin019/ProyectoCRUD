@@ -36,4 +36,13 @@ class RolController extends Controller
 
         return back()->with('message', 'Rol actualizado satisfactoriamente')->with('icon', 'success');
     }
+
+    public function deleteRol($id)
+    {
+        $r = Rol::findOrFail($id);
+        $r->status = 0;
+        $r->update();
+
+        return back()->with('message', 'Rol fue eliminado satisfactoriamente')->with('icon', 'success');
+    }
 }

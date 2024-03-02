@@ -12,9 +12,9 @@ class UserController extends Controller
 {
     public function getUsers(Request $request)
     {
-            $users = User::All();
-            return view('users.index', compact('users'));
-    }
+        $users = User::All();
+        return view('users.index', compact('users'));
+    } 
 
     public function postUser(Request $request)
     {
@@ -32,6 +32,7 @@ class UserController extends Controller
         $u->email = $request->email;
         $u->password = Hash::make($request->password);
         $u->status = $request->status;
+        $u->admin = $request->admin;
         $u->save();
         $u->email_verified_at = now();
         return back()->with('message', 'Usuario creado satisfactoriamente')->with('icon', 'success');
@@ -44,6 +45,7 @@ class UserController extends Controller
         $u->username = $request->username;
         $u->email = $request->email;
         $u->status = $request->status;
+        $u->admin = $request->admin;
         $u->save();
 
         return back()->with('message', 'Usuario actualizado satisfactoriamente')->with('icon', 'success');

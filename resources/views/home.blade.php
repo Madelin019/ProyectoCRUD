@@ -9,12 +9,21 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    {{ __('Inicio de sesión exitoso!') }}
+                    @if (auth()->user()->admin == 1)
+                    <div class="text-center">
+                        <h3>Bienvenid@, eres administrador</h3>
+                        <a href="{{ route('users') }}" class="btn btn-primary">Acceder a Usuarios</a>
+                    </div>
+                    @else
+                    <div class="text-center">
+                        <h3>Bienvenid@, lo siento pero NO eres administrador</h3>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

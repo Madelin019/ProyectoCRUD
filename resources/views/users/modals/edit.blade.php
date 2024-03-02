@@ -33,15 +33,24 @@
                             <div class="col-md-12 col-lg-12">
                                 <div class="mb-3">
                                     <label class="form-label text-uppercase" for="status">Estado</label>
-                                    <select name="status" class="form-control" id="status" required>
-                                        <option value="">-- SELECCIONE --</option>
-                                        <option value="1">ACTIVO</option>
-                                        <option value="0">INACTIVO</option>
+                                    <select name="status" id="status" class="form-select selectpicker" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Activo</option>
+                                        <option value="0" {{ $user->status == 0 ? 'selected' : '' }}>Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="mb-3">
+                                    <label class="form-label text-uppercase" for="admin">¿Es administrador?</label>
+                                    <select name="admin" id="admin" class="form-select selectpicker" required>
+                                        <option value="">Seleccione</option>
+                                        <option value="1" {{ $user->admin == 1 ? 'selected' : '' }}>Si</option>
+                                        <option value="0" {{ $user->admin == 0 ? 'selected' : '' }}>No</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
                                 Cerrar

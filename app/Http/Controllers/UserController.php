@@ -51,12 +51,11 @@ class UserController extends Controller
         return back()->with('message', 'Usuario actualizado satisfactoriamente')->with('icon', 'success');
     }
 
-    public function deleteUser($id)
+        public function deleteUser($id)
     {
         $u = User::findOrFail($id);
-        $u->status = ($u->status == 1) ? 0 : 1;
-        $message = ($u->status == 1) ? 'Usuario habilitado satisfactoriamente' : 'Usuario inhabilitado satisfactoriamente';
-        $u->save();
+        $u->delete();
+        $message = 'Usuario eliminado satisfactoriamente';
         return back()->with('message', $message)->with('icon', 'success');
     }
 }

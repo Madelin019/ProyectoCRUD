@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Bienvenidos</div>
                 <div class="card-body text-center">
-                    <h1>MI CRUD MADELIN</h1>
+                    <h1>CRUD DE MADELIN</h1>
                 </div>
             </div>
         </div>

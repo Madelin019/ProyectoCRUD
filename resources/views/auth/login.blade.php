@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Login</div>
+                <div class="card-header">Inicio de Sesión</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -44,7 +44,7 @@
                                 <button type="submit" class="btn btn-primary">Ingresar</button>
 
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">Olvidaste tu contraseña, recuperala?</a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">Olvidaste tu contraseña? recuperala!</a>
                                 @endif
                             </div>
                         </div>

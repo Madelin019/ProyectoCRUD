@@ -19,7 +19,7 @@
                     <div class="col-auto">
                         <div class="col-auto">
                             <a class="btn btn-primary btn-sm" href="{{ route('home') }}"> Regresar</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#newUser"><i class="fa fa-plus">NUEVO</i></button>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#newUser"><i class="fa fa-plus">Nuevo</i></button>
                             @include('users.modals.add') 
                         </div>
                     </div>
@@ -63,9 +63,9 @@
                                         <td>{{ $user->email }}</td>
                                         <td>
                                             @if ($user->admin == 1)
-                                            <span class="badge bg-danger">Administrado</span>
+                                            <span class="badge bg-danger">Administrador</span>
                                             @else
-                                            <span class="badge bg-warning">User</span>
+                                            <span class="badge bg-warning">Usuario</span>
                                             @endif
                                         </td>
                                         <td>
@@ -85,6 +85,15 @@
                                                         <button class="dropdown-item pointer btn-sm" data-bs-toggle="modal" data-bs-target="#editUser{{ $user->id }}">
                                                             <i class="fas fa-edit"></i>&nbsp; Editar
                                                         </button>
+                                                    </li>
+                                                    <li>
+                                                        <form action="{{ route('user-delete', ['id' => $user->id]) }}" method="POST" class="delete-user-form">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <button type="submit" class="dropdown-item pointer btn-sm">
+                                                                <i class="fas fa-trash"></i>&nbsp; Eliminar
+                                                            </button>
+                                                        </form>
                                                     </li>
                                                 </ul>
                                             </div>

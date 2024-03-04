@@ -1,5 +1,5 @@
 <?php
-
+//Se utiliza para iniciar el proceso de sembrado de datos en la base de datos de la aplicación.
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;

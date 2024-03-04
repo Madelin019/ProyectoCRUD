@@ -1,4 +1,5 @@
 @extends('layouts.app')
+// muestra un formulario de inicio de sesión. Se utilizan clases de Bootstrap para el diseño y los estilos. 
 
 @section('content')
 <div class="container">
@@ -17,7 +18,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
+                                @error('email') // Manejo de errores para el campo de correo electrónico
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -43,7 +44,7 @@
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">Ingresar</button>
 
-                                @if (Route::has('password.request'))
+                                @if (Route::has('password.request'))  // Verifica si la ruta para recuperar contraseña está disponible
                                 <a class="btn btn-link" href="{{ route('password.request') }}">Olvidaste tu contraseña? recuperala!</a>
                                 @endif
                             </div>

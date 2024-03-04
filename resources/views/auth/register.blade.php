@@ -1,4 +1,5 @@
 @extends('layouts.app')
+//Permite a los usuarios  que se registren en la aplicación proporcionando su nombre, dirección de correo electrónico y contraseña.
 
 @section('content')
 <div class="container">

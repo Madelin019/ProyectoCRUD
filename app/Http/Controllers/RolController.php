@@ -18,7 +18,7 @@ class RolController extends Controller
 
     public function postRol(Request $request)
     {
-        $r = new Rol;
+        $r = new Rol; // Crea una nueva instancia del modelo Rol
         $r->user_id = Auth::user()->id;
         $r->name = $request->input('name');
         $r->permissions = json_encode($request->except(['_token', 'name']));
@@ -41,7 +41,7 @@ class RolController extends Controller
     {
         $r = Rol::findOrFail($id);
         $r->status = 0;
-        $r->update();
+        $r->update(); // Actualiza el registro en la base de datos
 
         return back()->with('message', 'Rol fue eliminado satisfactoriamente')->with('icon', 'success');
     }

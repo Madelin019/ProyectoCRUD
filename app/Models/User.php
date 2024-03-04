@@ -13,14 +13,14 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Los atributos que son asignables en masa.
      *
      * @var array<int, string>
      */
     protected $fillable = ['name', 'username', 'email', 'email_verified_at', 'password', 'status', 'admin', 'remember_token'];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Los atributos que deben estar ocultos para la serialización.
      *
      * @var array<int, string>
      */
@@ -30,7 +30,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Los atributos que deben ser transformados a tipos específicos.
      *
      * @var array<string, string>
      */
@@ -38,6 +38,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Define la relación entre usuario y rol.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function rol()
     {
         return $this->hasOne(Rol::class, 'id', 'role_id');

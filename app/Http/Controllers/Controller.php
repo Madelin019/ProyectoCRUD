@@ -1,5 +1,5 @@
 <?php
-
+//Este código define una clase Controller en el namespace App\Http\Controllers que extiende de la clase BaseController del framework Laravel.
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

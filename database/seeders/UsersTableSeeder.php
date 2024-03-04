@@ -1,5 +1,5 @@
 <?php
-
+//Este seeder se utiliza para crear un registro de usuario inicial con datos específicos en la tabla de usuarios de la base de datos.
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;

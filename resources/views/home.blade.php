@@ -1,4 +1,5 @@
 @extends('layouts.app')
+//Bienveniida a los usuarios dependiendo del rol que estos tengan, ya sea admministradr o usuario.
 
 @section('content')
 <div class="container">
@@ -14,7 +15,7 @@
                     </div>
                     @endif
 
-                    @if (auth()->user()->admin == 1)
+                    @if (auth()->user()->admin == 1) //Realiza una verificación para el rol de usuario
                     <div class="text-center">
                         <h3>Bienvenid@, eres administrador</h3>
                         <a href="{{ route('users') }}" class="btn btn-primary">Acceder a Usuarios</a>

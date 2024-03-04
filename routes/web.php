@@ -24,6 +24,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Rutas para redirigir a los apartados del crud
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/usuarios', [UserController::class, 'getUsers'])->name('users');
     Route::post('/usuarios/Nuevo', [UserController::class, 'postUser'])->name('user-post');

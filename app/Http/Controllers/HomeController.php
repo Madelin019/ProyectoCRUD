@@ -1,4 +1,7 @@
 <?php
+/*este controlador asegura que los usuarios autenticados accedan únicamente a la página de inicio de la aplicación y muestra la vista asociada cuando
+se realiza una solicitud a la ruta correspondiente.
+*/
 
 namespace App\Http\Controllers;
 
